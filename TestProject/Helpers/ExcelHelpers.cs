@@ -1,7 +1,9 @@
 ﻿using Excel;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Linq;
 
 namespace AutoFramework.Helpers
 {
@@ -45,6 +47,25 @@ namespace AutoFramework.Helpers
             //store it in DataTable
             DataTable resultTable = table["sheet1"];
             return resultTable;
+        }
+
+        public static string ReadData(int rowNumber, string columnName)
+        {
+            try
+            {
+                //retrieving data using LINQ to reduce iterations
+                string data = (from colData in dataCol
+                               where colData.colName == columnName && colData.rowNumber == rowNumber
+                               select colData.colValue).SingleOrDefault();
+
+                //var datas = dataCol.Where(x => x.colName == columnName && x.rowNumber == rowNumber
+                return data.ToString();
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
         }
     }
 
