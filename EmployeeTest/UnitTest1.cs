@@ -1,5 +1,6 @@
 ﻿using System;
 using AutoFramework.Base;
+using AutoFramework.Helpers;
 using EmployeeTest.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -40,9 +41,11 @@ namespace EmployeeTest
         [TestMethod]
         public void TestMethod1()
         {
+            LogHelpers.CreateLogFile();
             OpenBrowser(BrowserType.Chrome);
+            LogHelpers.Write("Opened the browser");
             DriverContext.Browsers.GoToUrl(url);
-
+            LogHelpers.Write("Navigated to the page");
             CurrentPage = GetInstance<LoginPage>();
             CurrentPage.As<LoginPage>().ClickLoginLink();
             CurrentPage.As<LoginPage>().Login("admin", "password");
