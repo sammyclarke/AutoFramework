@@ -11,7 +11,7 @@ namespace AutoFramework.Base
     {
         private static IWebDriver driver;
 
-        internal static IWebDriver Driver
+        public static IWebDriver Driver
         {
             get
             {

@@ -12,12 +12,6 @@ namespace EmployeeTest.Pages
 {
     class LoginPage : BasePage
     {
-        //initialize page
-        public LoginPage(IWebDriver driver): base(driver)
-        {
-            
-        }
-
         [FindsBy(How = How.LinkText, Using = "Login")]
         public IWebElement lnkLogin { get; set; }
 
@@ -29,5 +23,12 @@ namespace EmployeeTest.Pages
 
         [FindsBy(How = How.CssSelector, Using = "input.btn")]
         public IWebElement btnLogin { get; set; }
+
+        public void Login(string userName, string password)
+        {
+            txtUserName.SendKeys(userName);
+            txtPassword.SendKeys(password);
+            btnLogin.Submit();
+        }
     }
 }

@@ -11,12 +11,6 @@ namespace EmployeeTest.Pages
 {
     class EmployeePage : BasePage
     {
-        //initialize page
-        public EmployeePage(IWebDriver driver) : base(driver)
-        {
-
-        }
-
         [FindsBy(How = How.Name, Using = "searchTerm")]
         public IWebElement btnLogin { get; set; }
 

@@ -10,9 +10,9 @@ namespace AutoFramework.Base
 {
     public abstract class BasePage
     {
-        public BasePage(IWebDriver driver)
+        public BasePage()
         {
-            PageFactory.InitElements(driver, this);
+            PageFactory.InitElements(DriverContext.Driver, this);
         }
     }
 }
