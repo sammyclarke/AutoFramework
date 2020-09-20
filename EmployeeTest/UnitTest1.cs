@@ -40,9 +40,6 @@ namespace EmployeeTest
         [TestMethod]
         public void TestMethod1()
         {
-            //DriverContext.Driver = new ChromeDriver();
-            //DriverContext.Driver.Navigate().GoToUrl(url);
-
             OpenBrowser(BrowserType.Chrome);
             DriverContext.Browsers.GoToUrl(url);
 
