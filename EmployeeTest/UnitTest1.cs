@@ -2,6 +2,7 @@
 using EmployeeTest.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 
 namespace EmployeeTest
@@ -9,7 +10,7 @@ namespace EmployeeTest
     [TestClass]
     public class UnitTest1
     {
-        string url = "http://localhost/EmployeeApp/";
+        string url = "http://localhost:64429";
 
         private IWebDriver Driver;
 
@@ -18,14 +19,15 @@ namespace EmployeeTest
         [TestMethod]
         public void TestMethod1()
         {
-            Driver = new FirefoxDriver();
+            Driver = new ChromeDriver();
             Driver.Navigate().GoToUrl(url);
+            Login();
 
         }
 
         public void Login()
         {
-            LoginPage page = new LoginPage();
+            LoginPage page = new LoginPage(Driver);
 
             page.lnkLogin.Click();
             page.txtUserName.SendKeys("admin");

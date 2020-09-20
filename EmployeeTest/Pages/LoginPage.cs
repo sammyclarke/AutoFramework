@@ -1,19 +1,27 @@
-﻿using OpenQA.Selenium;
+﻿using AutoFramework.Base;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeTest.Pages
+namespace EmployeeTest.Pages 
 {
-    class LoginPage
+    class LoginPage : BasePage
     {
-        [FindsBy(How = How.LinkText, Using = "Log in")]
+        //initialize page
+        public LoginPage(IWebDriver driver): base(driver)
+        {
+            
+        }
+
+        [FindsBy(How = How.LinkText, Using = "Login")]
         public IWebElement lnkLogin { get; set; }
 
-        [FindsBy(How = How.Id, Using = "Username")]
+        [FindsBy(How = How.Id, Using = "UserName")]
         public IWebElement txtUserName { get; set; }
 
         [FindsBy(How = How.Id, Using = "Password")]
