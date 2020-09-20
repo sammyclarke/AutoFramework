@@ -12,8 +12,12 @@ namespace EmployeeTest.Pages
 {
     class LoginPage : BasePage
     {
+        // objects for the login page
         [FindsBy(How = How.LinkText, Using = "Login")]
         public IWebElement lnkLogin { get; set; }
+
+        [FindsBy(How = How.LinkText, Using = "Employee List")]
+        public IWebElement lnkEmployeeList { get; set; }
 
         [FindsBy(How = How.Id, Using = "UserName")]
         public IWebElement txtUserName { get; set; }
@@ -29,6 +33,17 @@ namespace EmployeeTest.Pages
             txtUserName.SendKeys(userName);
             txtPassword.SendKeys(password);
             btnLogin.Submit();
+        }
+
+        public void ClickLoginLink()
+        {
+            lnkLogin.Click();
+        }
+
+        public EmployeePage ClickEmployeeList()
+        {
+            lnkEmployeeList.Click();
+            return new EmployeePage();
         }
     }
 }

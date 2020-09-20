@@ -19,16 +19,12 @@ namespace EmployeeTest
         {
             DriverContext.Driver = new ChromeDriver();
             DriverContext.Driver.Navigate().GoToUrl(url);
-            Login();
-
-        }
-
-        public void Login()
-        {
             LoginPage page = new LoginPage();
+            page.ClickLoginLink();
+            page.Login("admin", "password");
+            EmployeePage employeePage = page.ClickEmployeeList();
+            employeePage.ClickCreateNew();
 
-            
-            
         }
 
     }
