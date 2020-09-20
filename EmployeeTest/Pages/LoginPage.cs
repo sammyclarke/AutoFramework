@@ -43,7 +43,7 @@ namespace EmployeeTest.Pages
         public EmployeePage ClickEmployeeList()
         {
             lnkEmployeeList.Click();
-            return new EmployeePage();
+            return GetInstance<EmployeePage>();
         }
     }
 }

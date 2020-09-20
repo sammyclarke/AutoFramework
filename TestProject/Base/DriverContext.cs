@@ -22,5 +22,7 @@ namespace AutoFramework.Base
                 driver = value;
             }
         }
+
+        public static Browser Browsers { get; set; }
     }
 }
